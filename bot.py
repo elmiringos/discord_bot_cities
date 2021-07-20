@@ -50,5 +50,4 @@ async def ход(ctx, arg):
 
 
 
-#client.run(os.environ['DISCORD_BOT_TOKEN'])
-client.run("NzAzNTUxNjM5NTAzNTAzNDAx.XqQPhg.Y4bxGD0tGyqaOwOfpcF0z_VDRL8")
+client.run(os.environ['DISCORD_BOT_TOKEN'])
