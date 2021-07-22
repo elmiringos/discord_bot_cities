@@ -24,22 +24,29 @@ async def повтор(ctx, *, arg):
 @client.command()
 async def города(ctx):
     await ctx.send("я готовая")
+    used_cities = []
 @client.command()
 async def ход(ctx, arg):
-    await ctx.send("я запомнил")
-    used_cities.append(arg)
-    check = False
-    for i in cities:
-        if i[0] == arg[-1] and i not in used_cities:
-            await ctx.send(i)
-            used_cities.append(i)
-            await ctx.send("твой ход")
-            await ctx.send(used_cities)
-            check = True
-            break
-    if check == False:
-        await ctx.send("я проиграл ((")
-        used_cities = []
+    error = False
+    if arg in used_cities:
+        await ctx.send("ошибка 1, напишите еще раз")
+        error = True
+    if len(used_cities) != 0 and used_cities[-1][1] != arg[0]:
+        await ctx.send("ошибка 2, напишите еще раз")
+        error = True
+    if error != True:
+        await ctx.send("я запомнил")
+        used_cities.append(arg)
+        check = False
+        for i in cities:
+            if i[0] == arg[-1] and i not in used_cities:
+                await ctx.send(i)
+                used_cities.append(i)
+                await ctx.send("твой ход")
+                await ctx.send(used_cities)
+                check = True
+        if check == False:
+            await ctx.send("я проиграл ((")
         
 
 
@@ -50,4 +57,5 @@ async def ход(ctx, arg):
 
 
 
-client.run(os.environ['DISCORD_BOT_TOKEN'])
+#client.run(os.environ['DISCORD_BOT_TOKEN'])
+client.run("NzAzNTUxNjM5NTAzNTAzNDAx.XqQPhg.R6Ko_BH2e-jmycgcBvZH15xDgL0")
