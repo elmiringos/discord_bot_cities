@@ -94,5 +94,7 @@ async def step(ctx, city):
     if ctx.author != BOT_NAME:
         await user_step(ctx, city)        
     await bot_step(ctx)
-        
-client.run(os.environ['TOKEN'])
+if os.environ['TOKEN'] == None:
+    print("Create .env file with token and load it by commad source .env")
+else:        
+    client.run(os.environ['TOKEN'])
