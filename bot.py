@@ -95,5 +95,4 @@ async def step(ctx, city):
         await user_step(ctx, city)        
     await bot_step(ctx)
         
-print(os.environ['TOKEN'])
 client.run(os.environ['TOKEN'])
